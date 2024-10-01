@@ -1,4 +1,4 @@
-import sys
+import sys, platform
 
 from input_utilities import InputUtils
 from output_utilities import OutputUtils
@@ -37,9 +37,10 @@ def performOneCalculation():
 
 
 def main():
-    msg = f'Python version: {get_python_version()}'
+    msg = f'Python version: {get_python_version()} on {platform.system()} {platform.release()}'
     print(msg)
     # OutputUtils.display_message(msg, 'Python Version')
+
 
     keepCalculating = True
     while keepCalculating:
