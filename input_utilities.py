@@ -12,6 +12,7 @@ class InputUtils:
         """get a whole number as directed by the specified message"""
         app = QApplication(sys.argv)
         waitingForValidInput = True
+        response: tuple[int, bool] = (0, False)
         # trap user in dialog until they enter a valid value and click OK
         while waitingForValidInput:
             # response will be a tuple of the form (value, True/False} where True
