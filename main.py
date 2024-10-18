@@ -14,7 +14,7 @@ def get_operation() -> str:
     return opr
 
 
-def performOperation(num1, num2, operation):
+def perform_operation(num1, num2, operation):
     match operation:
         case '+':
             return num1 + num2
@@ -30,7 +30,7 @@ def performOneCalculation():
     num1 = InputUtils.get_decimal_number('First', 'Enter the first number:')
     num2 = InputUtils.get_decimal_number('Second', 'Enter the second number:')
     operation = get_operation()
-    result = performOperation(num1, num2, operation)
+    result = perform_operation(num1, num2, operation)
     msg = f'{num1} {operation} {num2} = {result}'
     print(msg)
     OutputUtils.display_message(msg, 'Result')
