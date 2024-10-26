@@ -11,16 +11,16 @@ class InputUtils:
     def get_whole_number(title: str, msg: str, parent=None) -> int:
         """get a whole number as directed by the specified message"""
         app = QApplication(sys.argv)
-        waitingForValidInput = True
+        waiting_for_valid_input = True
         response: tuple[int, bool] = (0, False)
         # trap user in dialog until they enter a valid value and click OK
-        while waitingForValidInput:
+        while waiting_for_valid_input:
             # response will be a tuple of the form (value, True/False} where True
             # means the OK button was preseed and False means the Cancel button was pressed
             response = QtWidgets.QInputDialog.getInt(parent, msg, title)
             # print(f'{response}=')
             if response[1]:
-                waitingForValidInput = False
+                waiting_for_valid_input = False
 
         n: int = response[0]
         app.closeAllWindows()
@@ -29,21 +29,21 @@ class InputUtils:
         return n
 
     @staticmethod
-    def get_decimal_number(title: str, msg: str, parent=None) -> decimal:
+    def get_decimal_number(title: str, msg: str, parent=None) -> Decimal:
         """return a decimal number as directed by the message"""
         app = QApplication(sys.argv)
-        waitingForValidInput = True
+        waiting_for_valid_input = True
         # trap user in dialog until they enter a valid value and click OK
-        while waitingForValidInput:
+        while waiting_for_valid_input:
             # response will be a tuple of the form (value, True/False} where True
-            # means the OK button was preseed and False means the Cancel button was pressed
+            # means the OK button was pressed and False means the Cancel button was pressed
             min = 0
             max = decimal.MAX_EMAX
             decimals = sys.float_info.dig
             response = QtWidgets.QInputDialog.getDouble(parent, msg, title, 0, min, max,
                                                         decimals)  # print(f'{response}=')
             if response[1]:
-                waitingForValidInput = False
+                waiting_for_valid_input = False
 
         n: decimal = Decimal(response[0])
         app.closeAllWindows()
@@ -51,7 +51,30 @@ class InputUtils:
         return n
 
     @staticmethod
-    def get_yesno_response(question: str, title: str, parent=None) -> bool:
+    def get_floating_point_number(title: str, msg: str, parent=None) -> float:
+        """return a floating-point number as directed by the message"""
+        app = QApplication(sys.argv)
+        waiting_for_valid_input = True
+        # trap user in dialog until they enter a valid value and click OK
+        while waiting_for_valid_input:
+            # response will be a tuple of the form (value, True/False} where True
+            # means the OK button was preseed and False means the Cancel button was pressed
+            min = 0
+            max = decimal.MAX_EMAX
+            decimals = sys.float_info.dig
+            response = QtWidgets.QInputDialog.getDouble(parent, msg, title, 0, min, max,
+                                                        decimals)
+            # print(f'{response}=')
+            if response[1]:
+                waiting_for_valid_input = False
+
+        n: float = float(response[0])
+        app.closeAllWindows()
+        app.exit()
+        return n
+
+    @staticmethod
+    def get_yesno_response(title: str, question: str, parent=None) -> bool:
         """get a yes/no (True/False) response to a question"""
         app = QApplication(sys.argv)
 
@@ -73,11 +96,11 @@ class InputUtils:
         app = QApplication(sys.argv)
         # flags
         # force user to choose one of the available choices before returning
-        waitingForChoice: bool = True
-        while waitingForChoice:
+        waiting_for_choice: bool = True
+        while waiting_for_choice:
             item, resp = QtWidgets.QInputDialog.getItem(parent, title, msg, choices, 0, False, )
             # print(f'item={item}, resp={resp}')
-            waitingForChoice = not resp
+            waiting_for_choice = not resp
 
         app.closeAllWindows()
         app.exit()

@@ -42,10 +42,10 @@ def main():
     # OutputUtils.display_message(msg, 'Python Version')
 
 
-    keepCalculating = True
-    while keepCalculating:
+    keep_calculating = True
+    while keep_calculating:
         performOneCalculation()
-        keepCalculating = InputUtils.get_yesno_response("Perform another calculation?", 'Keep Calculating?')
+        keep_calculating = InputUtils.get_yesno_response('Keep Calculating?', "Perform another calculation?", )
 
     msg = 'Thank you for using my calculator'
     print(msg)
