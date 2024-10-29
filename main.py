@@ -17,17 +17,16 @@ def get_operation() -> MathOperation:
 
 
 def perform_operation(num1, num2, operation: MathOperation):
-    print(f'{operation=},{operation.name=},{operation.value=}')
-    match operation.value:
-        case MathOperation.addition.value:
+    match operation:
+        case MathOperation.addition:
             return num1 + num2
-        case MathOperation.subtraction.value:
+        case MathOperation.subtraction:
             return num1 - num2
-        case MathOperation.multiplication.value:
+        case MathOperation.multiplication:
             return num1 * num2
-        case MathOperation.division.value:
+        case MathOperation.division:
             return num1 / num2
-        case MathOperation.modulo.value:
+        case MathOperation.modulo:
             return num1 % num2
 
 
