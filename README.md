@@ -8,7 +8,7 @@ instead of the normal input() and print() statements.
 |:--------|---------:|
 | Python  |   3.13.0 |
 | PyQt6   |    6.7.1 |
-| VSCode  |   1.94.2 |
+| VSCode  |   1.95.0 |
 | PyCharm | 2024.2.4 |
 
 
