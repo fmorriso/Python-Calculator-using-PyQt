@@ -11,19 +11,19 @@ class InputUtils:
     @staticmethod
     def get_whole_number(title: str, msg: str, parent=None) -> int:
         """get a whole number as directed by the specified message"""
+        n: int = 0
         app = QApplication(sys.argv)
         waiting_for_valid_input = True
         response: tuple[int, bool] = (0, False)
         # trap user in dialog until they enter a valid value and click OK
         while waiting_for_valid_input:
             # response will be a tuple of the form (value, True/False} where True
-            # means the OK button was preseed and False means the Cancel button was pressed
-            response = QtWidgets.QInputDialog.getInt(parent, msg, title)
+            # means the OK button was pressed and False means the Cancel button was pressed
+            n, response = QtWidgets.QInputDialog.getInt(parent, msg, title)
             # print(f'{response}=')
-            if response[1]:
+            if response:
                 waiting_for_valid_input = False
 
-        n: int = response[0]
         app.closeAllWindows()
         app.exit()
 
@@ -32,6 +32,7 @@ class InputUtils:
     @staticmethod
     def get_decimal_number(title: str, msg: str, parent=None) -> Decimal:
         """return a decimal number as directed by the message"""
+        n: Decimal = Decimal(0)
         app = QApplication(sys.argv)
         waiting_for_valid_input = True
         # trap user in dialog until they enter a valid value and click OK
@@ -41,12 +42,12 @@ class InputUtils:
             min = 0
             max = decimal.MAX_EMAX
             decimals = sys.float_info.dig
-            response = QtWidgets.QInputDialog.getDouble(parent, msg, title, 0, min, max,
+            n, response = QtWidgets.QInputDialog.getDouble(parent, msg, title, 0, min, max,
                                                         decimals)  # print(f'{response}=')
-            if response[1]:
+            if response:
                 waiting_for_valid_input = False
 
-        n: decimal = Decimal(response[0])
+        n: decimal = Decimal(n)
         app.closeAllWindows()
         app.exit()
         return n
