@@ -55,6 +55,7 @@ class InputUtils:
     @staticmethod
     def get_floating_point_number(title: str, msg: str, parent=None) -> float:
         """return a floating-point number as directed by the message"""
+        n: float = 0
         app = QApplication(sys.argv)
         waiting_for_valid_input = True
         # trap user in dialog until they enter a valid value and click OK
@@ -64,13 +65,13 @@ class InputUtils:
             min = 0
             max = decimal.MAX_EMAX
             decimals = sys.float_info.dig
-            response = QtWidgets.QInputDialog.getDouble(parent, msg, title, 0, min, max,
+            n, response = QtWidgets.QInputDialog.getDouble(parent, msg, title, 0, min, max,
                                                         decimals)
             # print(f'{response}=')
-            if response[1]:
+            if response:
                 waiting_for_valid_input = False
 
-        n: float = float(response[0])
+        n: float = float(n)
         app.closeAllWindows()
         app.exit()
         return n
@@ -86,7 +87,7 @@ class InputUtils:
         msgBox.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
         msgBox.setDefaultButton(QMessageBox.StandardButton.Yes)
         msgBox.setIcon(QMessageBox.Icon.Question)
-        ret = msgBox.exec()
+        ret: QMessageBox.StandardButton = msgBox.exec()
 
         app.closeAllWindows()
         app.exit()
@@ -95,13 +96,14 @@ class InputUtils:
     @staticmethod
     def get_single_choice(title: str, msg: str, choices: list[str], parent=None):
         """get a single choice from a list of choices"""
+        item = ''
         app = QApplication(sys.argv)
         # flags
         # force user to choose one of the available choices before returning
         waiting_for_choice: bool = True
         while waiting_for_choice:
             item, resp = QtWidgets.QInputDialog.getItem(parent, title, msg, choices, 0, False, )
-            # print(f'item={item}, resp={resp}')
+            # print(f'{item=}, {resp=}')
             waiting_for_choice = not resp
 
         app.closeAllWindows()
