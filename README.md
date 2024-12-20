@@ -6,17 +6,18 @@ instead of the normal input() and print() statements.
 
 | Tool    |  Version |
 |:--------|---------:|
-| Python  |   3.13.0 |
+| Python  |   3.13.1 |
 | PyQt6   |    6.7.1 |
-| VSCode  |   1.95.1 |
-| PyCharm | 2024.2.4 |
+| VSCode  |   1.96.2 |
+| PyCharm | 2024.3.1 |
 
 
 ## Change History
 
-| Date       | Description                                                                        |
-|:-----------|:-----------------------------------------------------------------------------------|
-| 2024-09-27 | Initial creation                                                                   |
-| 2024-10-29 | Simplify operation variable usage |
+| Date       | Description                             |
+|:-----------|:----------------------------------------|
+| 2024-09-27 | Initial creation                        |
+| 2024-10-29 | Simplify operation variable usage       |
+| 2024-12-20 | Verify program works with python 3.13.1 |
 
 
