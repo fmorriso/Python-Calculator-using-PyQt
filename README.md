@@ -7,7 +7,7 @@ instead of the normal input() and print() statements.
 | Tool    |  Version |
 |:--------|---------:|
 | Python  |   3.13.1 |
-| PyQt6   |    6.7.1 |
+| PyQt6   |    6.8.0 |
 | VSCode  |   1.96.2 |
 | PyCharm | 2024.3.1 |
 
@@ -19,5 +19,7 @@ instead of the normal input() and print() statements.
 | 2024-09-27 | Initial creation                        |
 | 2024-10-29 | Simplify operation variable usage       |
 | 2024-12-20 | Verify program works with python 3.13.1 |
+| 2024-12-31 | update GitLab access token              |
+
 
 
