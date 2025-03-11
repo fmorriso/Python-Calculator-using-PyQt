@@ -62,11 +62,11 @@ class InputUtils:
         while waiting_for_valid_input:
             # response will be a tuple of the form (value, True/False} where True
             # means the OK button was preseed and False means the Cancel button was pressed
-            min = 0
-            max = decimal.MAX_EMAX
+            min_value = 0
+            max_value = decimal.MAX_EMAX
             decimals = sys.float_info.dig
-            n, response = QtWidgets.QInputDialog.getDouble(parent, msg, title, 0, min, max,
-                                                        decimals)
+            n, response = QtWidgets.QInputDialog.getDouble(parent, msg, title, 0, min_value, max_value,
+                                                           decimals)
             # print(f'{response}=')
             if response:
                 waiting_for_valid_input = False
@@ -81,13 +81,13 @@ class InputUtils:
         """get a yes/no (True/False) response to a question"""
         app = QApplication(sys.argv)
 
-        msgBox = QMessageBox()
-        msgBox.setWindowTitle(title)
-        msgBox.setInformativeText(question)
-        msgBox.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
-        msgBox.setDefaultButton(QMessageBox.StandardButton.Yes)
-        msgBox.setIcon(QMessageBox.Icon.Question)
-        ret: QMessageBox.StandardButton = msgBox.exec()
+        msg_box = QMessageBox()
+        msg_box.setWindowTitle(title)
+        msg_box.setInformativeText(question)
+        msg_box.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+        msg_box.setDefaultButton(QMessageBox.StandardButton.Yes)
+        msg_box.setIcon(QMessageBox.Icon.Question)
+        ret: QMessageBox.StandardButton = msg_box.exec()
 
         app.closeAllWindows()
         app.exit()
