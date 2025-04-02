@@ -1,4 +1,10 @@
-import sys, platform
+import platform
+import sys
+from PyQt6 import QtCore
+
+
+
+from PyQt6.QtCore import QT_VERSION_STR
 
 from input_utilities import InputUtils
 from mathematical_operations import MathOperation
@@ -45,7 +51,6 @@ def main():
     print(msg)
     # OutputUtils.display_message(msg, 'Python Version')
 
-
     keep_calculating = True
     while keep_calculating:
         perform_one_calculation()
@@ -57,4 +62,7 @@ def main():
 
 
 if __name__ == '__main__':
+    print(f'Python version: {get_python_version()}')
+    print(f'Qt version: {QT_VERSION_STR}')
+    print(f'PyQt6 version: {QtCore.PYQT_VERSION_STR}')
     main()

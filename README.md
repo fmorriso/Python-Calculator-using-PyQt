@@ -9,6 +9,7 @@ instead of the normal input() and print() statements.
 |:--------|---------:|
 | Python  |   3.13.2 |
 | PyQt6   |    6.8.1 |
+| Qt      |    6.8.2 |
 | VSCode  |   1.98.0 |
 | PyCharm | 2024.3.2 |
 
@@ -22,6 +23,7 @@ instead of the normal input() and print() statements.
 | 2024-12-31 | update GitLab access token                      |
 | 2025-02-10 | verify code runs with python 3.13.2             |
 | 2025-03-11 | verify code runs with latest PyCharm and VSCode |
+| 2025-04-02 | verify code runs with latest PyQt6              |
 
 
 
