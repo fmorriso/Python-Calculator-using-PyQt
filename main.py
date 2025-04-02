@@ -1,9 +1,7 @@
 import platform
 import sys
+
 from PyQt6 import QtCore
-
-
-
 from PyQt6.QtCore import QT_VERSION_STR
 
 from input_utilities import InputUtils
