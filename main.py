@@ -1,8 +1,6 @@
 import platform
 import sys
-
-from PyQt6 import QtCore
-from PyQt6.QtCore import QT_VERSION_STR
+from importlib.metadata import version
 
 from input_utilities import InputUtils
 from mathematical_operations import MathOperation
@@ -11,6 +9,10 @@ from output_utilities import OutputUtils
 
 def get_python_version() -> str:
     return f'{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}'
+
+
+def get_package_version(package_name: str) -> str:
+    return version(package_name)
 
 
 def get_operation() -> MathOperation:
@@ -32,6 +34,8 @@ def perform_operation(num1, num2, operation: MathOperation):
             return num1 / num2
         case MathOperation.modulo:
             return num1 % num2
+
+    return None
 
 
 def perform_one_calculation():
@@ -61,6 +65,6 @@ def main():
 
 if __name__ == '__main__':
     print(f'Python version: {get_python_version()}')
-    print(f'Qt version: {QT_VERSION_STR}')
-    print(f'PyQt6 version: {QtCore.PYQT_VERSION_STR}')
+    print(f'PyQt6 version: {get_package_version("pyqt6")}')
+
     main()
